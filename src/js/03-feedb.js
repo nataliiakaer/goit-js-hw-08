@@ -21,13 +21,15 @@ function onFormSubmit(e) {
   e.preventDefault();
   if (emailEl.value === '' || messageEl.value === '') {
     alert('Please fill in all fields');
+    return;
   }
   console.log(inputValue);
   e.target.reset();
+  inputValue = {};
   localStorage.removeItem(FEEDBACK_KEY);
 }
 
-function messageTeatarea(e) {
+function messageTeatarea() {
   const savedMessage = localStorage.getItem(FEEDBACK_KEY);
   if (savedMessage) {
     inputValue = JSON.parse(savedMessage);

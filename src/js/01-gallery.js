@@ -13,7 +13,6 @@ const galleryListEl = document.querySelector('.gallery');
 const imageMarkup = createImageItemMurkup(galleryItems);
 
 galleryListEl.insertAdjacentHTML('beforeend', imageMarkup);
-galleryListEl.addEventListener('click', onImageClick);
 
 function createImageItemMurkup(galleryItems) {
   return galleryItems
@@ -29,16 +28,20 @@ function createImageItemMurkup(galleryItems) {
     .join('');
 }
 
-function onImageClick(evt) {
-  evt.preventDefault();
-  const isSelectedImageEl = evt.target.classList.contains('gallery__image');
-
-  if (!isSelectedImageEl) {
-    return;
-  }
-}
 new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
   scrollZoom: false,
 });
+
+// Події на "клік" не потрібно, бо в бібліотеці це враховано
+// galleryListEl.addEventListener('click', onImageClick);
+
+// function onImageClick(evt) {
+//   evt.preventDefault();
+//   const isSelectedImageEl = evt.target.classList.contains('gallery__image');
+
+//   if (!isSelectedImageEl) {
+//     return;
+//   }
+// }
