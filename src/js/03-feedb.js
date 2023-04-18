@@ -14,7 +14,6 @@ messageTeatarea();
 function onFormInput(e) {
   inputValue[e.target.name] = e.target.value;
   localStorage.setItem(FEEDBACK_KEY, JSON.stringify(inputValue));
-  // console.log(localStorage.getItem(FEEDBACK_KEY));
 }
 
 function onFormSubmit(e) {
